@@ -30,13 +30,28 @@ class MockUserDefaults: UserDefaultsType {
       currentScore = value
     }
   }
+
+  
+/*
+   func save(currentScore: Int) {
+   userDefaults?.set(currentScore, forKey: GameStateManager.currentScoreKey)
+   }
+   
+   func getCurrentScore() -> Int {
+   return userDefaults?.integer(forKey: GameStateManager.currentScoreKey) ?? 0
+   }
+ 
+ */
+  
   
   func data(forKey: String) -> Data? {
     return nil
   }
   
   func integer(forKey defaultName: String) -> Int {
-    return -1
+    let value = values[defaultName]
+    
+    return value as! Int
   }
   
 }
@@ -54,8 +69,11 @@ class MockTests: XCTestCase {
     gameStateManager.userDefaults = mockUserDefaults
   }
   
+  
   func test_getScore_ShouldReturnTheUserDefaultScore() {
-    
+    gameStateManager.save(currentScore: 1)
+    let value = gameStateManager.getCurrentScore()
+    XCTAssertEqual(value, 1);
   }
   
   func test_saveScore_GivenANumber_ShouldSaveThatNumberToUserDefaults() {

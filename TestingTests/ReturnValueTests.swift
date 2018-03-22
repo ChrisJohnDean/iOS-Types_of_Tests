@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // Copyright (c) 2017 Lighthouse Labs. All rights reserved.
 // 
 // Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
@@ -30,7 +37,9 @@ class ReturnValueTests: XCTestCase {
   }
     
   func test_canadianized_GivenANormalWord_ShouldReturnThatWord() {
-    
+    let input = "chapeau"
+    let expectedOutput = "chapeau"
+    XCTAssertEqual(canadianizer.canadianize(string: input), expectedOutput)
   }
   
   func test_canadianized_GivenACanadianWord_ShouldReturnThatWordCanadianized() {
@@ -39,3 +48,20 @@ class ReturnValueTests: XCTestCase {
     XCTAssertEqual(canadianizer.canadianize(string: input), expectedOutput)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

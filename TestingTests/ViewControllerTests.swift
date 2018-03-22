@@ -33,7 +33,9 @@ class ViewControllerTests: XCTestCase {
   }
   
   func test_ShouldBeTheTableViewsDataSource() {
-
+    _ = viewController.view
+    XCTAssert(viewController.tableView.dataSource === viewController)
+    
   }
   
   func test_tableViewRows_ShouldEqualNumberOfTitles() {
@@ -43,7 +45,8 @@ class ViewControllerTests: XCTestCase {
   }
   
   func test_tableViewSections_ShouldEqualOne() {
-    
+    _ = viewController.view
+    XCTAssertEqual(viewController.tableView.numberOfSections, 1)
   }
   
 }
